@@ -51,9 +51,12 @@ document.querySelectorAll('.input-cart-number').forEach(function(input, index, a
         }
 
         let cardNumber = '';
-        array.forEach(function(item) {
-            cardNumber += item.value + ' ';
-            if (item.value.length === 4) {
+        array.forEach(function(item, index) {
+            cardNumber += item.value;
+            if (index < array.length - 1) {
+                cardNumber += ' ';
+            }
+            if (item.value.length === 4 && index < array.length - 1) {
                 item.nextElementSibling.focus();
             }
         });
